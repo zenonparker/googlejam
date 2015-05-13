@@ -66,7 +66,7 @@ struct Maze {
     } else {
       grid.push_back(vector<Room>(grid[0].size()));
     }
-    DEBUG("Grid is " << grid.size() << "x" << grid[0].size() << " after addRow().");
+    DLOG("Grid is " << grid.size() << "x" << grid[0].size() << " after addRow().");
   }
 
   void addCol(bool left = false) {
@@ -78,7 +78,7 @@ struct Maze {
       }
     }
     if (left) { ++col; }
-    DEBUG("Grid is " << grid.size() << "x" << grid[0].size() << " after addCol().");
+    DLOG("Grid is " << grid.size() << "x" << grid[0].size() << " after addCol().");
   }
 
   Room& curRoom() {
@@ -132,11 +132,11 @@ struct Maze {
         default: /* W */ dir = Direction::S; break;
       }
     }
-    DEBUG("Player at " << row << "," << col << " after move '" << action << "'");
+    DLOG("Player at " << row << "," << col << " after move '" << action << "'");
   }
 
   void reverse() {
-    DEBUG("Reversing!");
+    DLOG("Reversing!");
     finishSide = dir;
     performAction('R');
     performAction('R');
@@ -184,7 +184,7 @@ int main(int argc, char** argv) {
 
     r.nextLine(ss);
 
-    DEBUG("Reading " << ss.str());
+    DLOG("Reading " << ss.str());
 
     string forward, backward;
     ss >> forward >> backward;

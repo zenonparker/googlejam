@@ -12,7 +12,7 @@ struct Language {
 
   long numDecimal(const string& num) const {
     long ret = 0;
-    DEBUG("tranlating " << num << " to lang using [" << langStr << "]");
+    DLOG("tranlating " << num << " to lang using [" << langStr << "]");
     for (int i = 0; i < num.length(); ++i) {
       int pos = langStr.find(num[i]);
       if (pos != string::npos) {
@@ -24,14 +24,14 @@ struct Language {
 
   string numFromLang(const string& num, const Language& lSource) const {
     long decNum = lSource.numDecimal(num);
-    DEBUG(decNum);
+    DLOG(decNum);
     string ret;
     int x = 1;
     while (decNum > 0) {
       long ind = decNum % langStr.length();
-      DEBUG("ind " << ind);
+      DLOG("ind " << ind);
       ret.insert(0, 1, langStr[ind]);
-      DEBUG("ret " << ret);
+      DLOG("ret " << ret);
       decNum /= langStr.length();
       ++x;
     }
@@ -56,7 +56,7 @@ int main(int argc, char** argv) {
 
     r.nextLine(ss);
 
-    DEBUG("Reading " << ss.str());
+    DLOG("Reading " << ss.str());
 
     string num, source, target;
     ss >> num >> source >> target;

@@ -25,18 +25,18 @@ public:
   /// Read from standard input.
   Reader(int argc, char** argv) {
     if (argc > 1) {
-      DEBUG("Reading from input file [" << argv[1] << "]");
+      DLOG("Reading from input file [" << argv[1] << "]");
       input = new std::ifstream(argv[1]);
       usingFile = true;
     } else {
-      DEBUG("Reading from standard input.");
+      DLOG("Reading from standard input.");
       input = &std::cin;
     }
   }
 
   ~Reader() {
     if (usingFile) {
-      DEBUG("Cleaning up input file handle.");
+      DLOG("Cleaning up input file handle.");
       delete input;
     }
   }

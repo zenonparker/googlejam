@@ -11,9 +11,9 @@
 #define LOG_HPP
 
 #ifdef VERBOSE
-#define DEBUG(X) std::cout << X << std::endl;
+#define DLOG(X) std::cout << X << std::endl;
 #else
-#define DEBUG(X) ;
+#define DLOG(X);
 #endif // VERBOSE
 
 #endif // LOG_HPP

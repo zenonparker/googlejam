@@ -21,18 +21,18 @@ public:
   /// Write to standard output.
   Writer(int argc, char** argv) {
     if (argc > 2) {
-      DEBUG("Writing to output file [" << argv[2] << "]");
+      DLOG("Writing to output file [" << argv[2] << "]");
       output = new std::ofstream(argv[2]);
       usingFile = true;
     } else {
-      DEBUG("Writing to standard output.");
+      DLOG("Writing to standard output.");
       output = &std::cout;
     }
   }
 
   ~Writer() {
     if (usingFile) {
-      DEBUG("Cleaning up output file handle.");
+      DLOG("Cleaning up output file handle.");
       delete output;
     }
   }
